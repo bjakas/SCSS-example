@@ -1,5 +1,7 @@
 $header-unit-size: 24px;
 $text-unit-size: 16px;
+$color-body: white;
+$padding-unit: 10px;
 
 @mixin reset {
     box-sizing: border-box;
@@ -17,7 +19,7 @@ $text-unit-size: 16px;
     @include reset();
   }
   body {
-    background-color: white;
+    background-color: $color-body;
   }
   .container {
     display: flex;
@@ -29,14 +31,14 @@ $text-unit-size: 16px;
     @include border();
     border-radius: 5%;
     @include box-shadow();
-    margin: 50px auto;
+    margin: 200px auto;
 
     .header {
       font-size: $header-unit-size;
     }
     .text {
       text-align: center;
-      padding: 20px;
+      padding: 2 * $padding-unit;
       font-size: $text-unit-size;
     }
 
@@ -44,7 +46,7 @@ $text-unit-size: 16px;
       background-color: black;
       color: white;
       border-radius: 20px;
-      padding: 10px;
+      padding: $padding-unit;
     }
   }
 
