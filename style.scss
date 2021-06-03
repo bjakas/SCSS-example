@@ -1,30 +1,63 @@
 @import "./variables";
 @import "./mixins";
+@keyframes color-change {
+  0% {
+    color: black;
+  }
+  20% {
+    color: yellow;
+  }
+  40% {
+    color: red;
+  }
+  60% {
+    color: green;
+  }
+  80% {
+    color: blue;
+  }
+  100% {
+    color: purple;
+  }  
+}
 
 *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
   }
-  body {
-    background-color: $color-body;
-  }
   .container {
     @include border();
     @include box-shadow();
+    background-color: $color-container;
     display: flex;
     flex-flow: column wrap;
     justify-content: center;
     align-items: center;
     width: 300px;
-    height: 400px;
+    height: 450px;
     border-radius: 5%;
     margin: 200px auto;
-
-    .header {
-      font-size: $header-unit-size;
+    padding-bottom: 10px;
+    
+    .container__translate {
+      transition: transform 2s linear;
     }
-    .text {
+    .container__translate:hover {
+      transform: translate(20px,0px);
+      
+    }
+    .container__main--header {
+      font-size: $header-unit-size;
+      text-align: center;
+      transition: color 2s ease-in-out;
+
+    }
+    .container__main--header:hover {
+      color: red;
+    }
+    .container__main--text {
+      animation: color-change 10s ease-in-out 0s infinite;
       text-align: center;
       padding: 2 * $padding-unit;
       font-size: $text-unit-size;
@@ -34,7 +67,29 @@
       background-color: black;
       color: white;
       border-radius: 20px;
+      width: 50%;
       padding: $padding-unit;
+      &:hover {
+        background-color: seagreen;
+        border: transparent;
+        color: black;
+        width: 60%;
+      }
+    }
+  }
+  @media screen and (max-width: 600px) {
+    body {
+      background-color: rosybrown;
+    }
+  }
+  @media screen and (min-width: 601px) and (max-width: 1024px) {
+    body {
+      background-color: brown;
+    }
+  }
+  @media screen and (min-width: 1025px) {
+    body {
+      background-color: white;
     }
   }
 

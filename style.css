@@ -1,3 +1,45 @@
+@-webkit-keyframes color-change {
+  0% {
+    color: black;
+  }
+  20% {
+    color: yellow;
+  }
+  40% {
+    color: red;
+  }
+  60% {
+    color: green;
+  }
+  80% {
+    color: blue;
+  }
+  100% {
+    color: purple;
+  }
+}
+
+@keyframes color-change {
+  0% {
+    color: black;
+  }
+  20% {
+    color: yellow;
+  }
+  40% {
+    color: red;
+  }
+  60% {
+    color: green;
+  }
+  80% {
+    color: blue;
+  }
+  100% {
+    color: purple;
+  }
+}
+
 *, *::before, *::after {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -5,14 +47,11 @@
   padding: 0;
 }
 
-body {
-  background-color: white;
-}
-
 .container {
   border: 1px solid lightblue;
   -webkit-box-shadow: 5px 5px 5px #b8d4dd;
           box-shadow: 5px 5px 5px #b8d4dd;
+  background-color: white;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -27,16 +66,38 @@ body {
       -ms-flex-align: center;
           align-items: center;
   width: 300px;
-  height: 400px;
+  height: 450px;
   border-radius: 5%;
   margin: 200px auto;
+  padding-bottom: 10px;
 }
 
-.container .header {
+.container .container__translate {
+  -webkit-transition: -webkit-transform 2s linear;
+  transition: -webkit-transform 2s linear;
+  transition: transform 2s linear;
+  transition: transform 2s linear, -webkit-transform 2s linear;
+}
+
+.container .container__translate:hover {
+  -webkit-transform: translate(20px, 0px);
+          transform: translate(20px, 0px);
+}
+
+.container .container__main--header {
   font-size: 24px;
+  text-align: center;
+  -webkit-transition: color 2s ease-in-out;
+  transition: color 2s ease-in-out;
 }
 
-.container .text {
+.container .container__main--header:hover {
+  color: red;
+}
+
+.container .container__main--text {
+  -webkit-animation: color-change 10s ease-in-out 0s infinite;
+          animation: color-change 10s ease-in-out 0s infinite;
   text-align: center;
   padding: 20px;
   font-size: 16px;
@@ -46,6 +107,32 @@ body {
   background-color: black;
   color: white;
   border-radius: 20px;
+  width: 50%;
   padding: 10px;
+}
+
+.container .button:hover {
+  background-color: seagreen;
+  border: transparent;
+  color: black;
+  width: 60%;
+}
+
+@media screen and (max-width: 600px) {
+  body {
+    background-color: rosybrown;
+  }
+}
+
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+  body {
+    background-color: brown;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  body {
+    background-color: white;
+  }
 }
 /*# sourceMappingURL=style.css.map */
