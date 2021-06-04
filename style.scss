@@ -1,5 +1,7 @@
 @import "./variables";
 @import "./mixins";
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+
 @keyframes color-change {
   0% {
     color: black;
@@ -29,54 +31,70 @@
   .container {
     @include border();
     @include box-shadow();
+    @include font();
     background-color: $color-container;
     display: flex;
     flex-flow: column wrap;
     justify-content: center;
     align-items: center;
+    align-content: center;
     width: 300px;
-    height: 450px;
+    height: 470px;
     border-radius: 5%;
     margin: 200px auto;
-    padding-bottom: 10px;
+    padding-bottom: $size-unit;
+    position: relative;
+
+    .container-x {
+      position: absolute;
+      top: $size-unit / 2;
+      right: $size-unit;
+      cursor: pointer;
+      font-weight: bold;
+    }
     
     .container__translate {
       transition: transform 2s linear;
+      cursor: pointer;
     }
     .container__translate:hover {
       transform: translate(20px,0px);
       
     }
     .container__main--header {
-      font-size: $header-unit-size;
+      font-size: $header-unit-size * 1.5;
+      font-weight: bold;
       text-align: center;
       transition: color 2s ease-in-out;
+      cursor: pointer;
+
 
     }
     .container__main--header:hover {
       color: red;
     }
     .container__main--text {
-      animation: color-change 10s ease-in-out 0s infinite;
+      animation: color-change 10s ease-in-out 0s infinite normal;
       text-align: center;
-      padding: 2 * $padding-unit;
+      padding: $size-unit * 2;
       font-size: $text-unit-size;
     }
 
     .button {
       background-color: black;
       color: white;
-      border-radius: 20px;
+      border-radius: $size-unit * 2;
       width: 50%;
-      padding: $padding-unit;
-      &:hover {
-        background-color: seagreen;
-        border: transparent;
+      padding: $size-unit;
+      cursor: pointer;
+      }
+    .button:hover {
+        background-color: grey;
         color: black;
-        width: 60%;
+        border: none;
       }
     }
-  }
+
   @media screen and (max-width: 600px) {
     body {
       background-color: rosybrown;

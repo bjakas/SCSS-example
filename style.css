@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap");
 @-webkit-keyframes color-change {
   0% {
     color: black;
@@ -18,7 +19,6 @@
     color: purple;
   }
 }
-
 @keyframes color-change {
   0% {
     color: black;
@@ -51,6 +51,7 @@
   border: 1px solid lightblue;
   -webkit-box-shadow: 5px 5px 5px #b8d4dd;
           box-shadow: 5px 5px 5px #b8d4dd;
+  font-family: 'Open Sans', sans-serif;
   background-color: white;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -65,11 +66,22 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
   width: 300px;
-  height: 450px;
+  height: 470px;
   border-radius: 5%;
   margin: 200px auto;
   padding-bottom: 10px;
+  position: relative;
+}
+
+.container .container-x {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  cursor: pointer;
+  font-weight: bold;
 }
 
 .container .container__translate {
@@ -77,6 +89,7 @@
   transition: -webkit-transform 2s linear;
   transition: transform 2s linear;
   transition: transform 2s linear, -webkit-transform 2s linear;
+  cursor: pointer;
 }
 
 .container .container__translate:hover {
@@ -85,10 +98,12 @@
 }
 
 .container .container__main--header {
-  font-size: 24px;
+  font-size: 36px;
+  font-weight: bold;
   text-align: center;
   -webkit-transition: color 2s ease-in-out;
   transition: color 2s ease-in-out;
+  cursor: pointer;
 }
 
 .container .container__main--header:hover {
@@ -96,8 +111,8 @@
 }
 
 .container .container__main--text {
-  -webkit-animation: color-change 10s ease-in-out 0s infinite;
-          animation: color-change 10s ease-in-out 0s infinite;
+  -webkit-animation: color-change 10s ease-in-out 0s infinite normal;
+          animation: color-change 10s ease-in-out 0s infinite normal;
   text-align: center;
   padding: 20px;
   font-size: 16px;
@@ -109,13 +124,13 @@
   border-radius: 20px;
   width: 50%;
   padding: 10px;
+  cursor: pointer;
 }
 
 .container .button:hover {
-  background-color: seagreen;
-  border: transparent;
+  background-color: grey;
   color: black;
-  width: 60%;
+  border: none;
 }
 
 @media screen and (max-width: 600px) {
